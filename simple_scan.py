@@ -20,10 +20,10 @@ def scan(port):
         result = sock.connect_ex((ip, port))
         if result == 0:
             #if a socket is listening it will print out the port number
-            print(f'\n Port {port} Is Open -------------> ')
+            print(f'\n Porta {port} está aberta.')
             sock.close()
         else:
-            print(f'\n Port {port} Is Close :-(')
+            print(f'\n Porta {port} está fechada. :-(')
 
     except:
         pass
