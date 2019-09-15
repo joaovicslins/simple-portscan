@@ -14,8 +14,9 @@ print('-'*80)
 #Start time
 t1 = datetime.now()
 
-def scan(port):
-    try:
+def scan():
+    port = 0
+    for port in range(0, 1000):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #it create sock stream
         result = sock.connect_ex((ip, port))
         if result == 0:
@@ -24,16 +25,11 @@ def scan(port):
             sock.close()
         else:
             print(f'\n Porta {port} está fechada. :-(')
-
-    except:
-        pass
-
-#Ports to scan
-scan(80)
-scan(22)
-scan(25)
+        port += 1      
 
 
+scan()
+    
 t2 = datetime.now()
 #Total time of scan
 print(f'O tempo total do scan foi: {t2 - t1}')
